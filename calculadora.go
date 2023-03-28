@@ -11,11 +11,11 @@ import (
 type calc struct {
 }
 
-func (calc) operate(entrada string, operador string) int {
+func (calc) Operate(entrada string, operador string) int {
 
 	valores := strings.Split(entrada, operador)
-	valor1 := parsear(valores[0])
-	valor2 := parsear(valores[1])
+	valor1 := Parsear(valores[0])
+	valor2 := Parsear(valores[1])
 
 	switch operador {
 	case "+":
@@ -36,7 +36,7 @@ func (calc) operate(entrada string, operador string) int {
 	}
 }
 
-func parsear(valores string) int {
+func Parsear(valores string) int {
 	valor, err := strconv.Atoi(valores)
 	if err != nil {
 		fmt.Println(err.Error())
@@ -45,7 +45,7 @@ func parsear(valores string) int {
 	return valor
 }
 
-func leerEntrada() string {
+func LeerEntrada() string {
 	scanner := bufio.NewScanner(os.Stdin)
 	scanner.Scan()
 	return scanner.Text()
